@@ -54,6 +54,18 @@ class GameController extends Controller
         $game->price = $validatedData['price'];
         $game->year = $validatedData['year'];
         $game->display = (bool) ($validatedData['display'] ?? false);
+
+        if ($request->hasFile('image')) {
+            $uploadedFile = $request->file('image');
+            $extension = $uploadedFile->clientExtension();
+            $name = uniqid();
+            $game->image = $uploadedFile->storePubliclyAs(
+                '/',
+                $name . '.' . $extension,
+                'uploads'
+            );
+        }
+
         $game->save();
 
         return redirect('/games');
@@ -91,6 +103,18 @@ class GameController extends Controller
         $game->price = $validatedData['price'];
         $game->year = $validatedData['year'];
         $game->display = (bool) ($validatedData['display'] ?? false);
+
+        if ($request->hasFile('image')) {
+            $uploadedFile = $request->file('image');
+            $extension = $uploadedFile->clientExtension();
+            $name = uniqid();
+            $game->image = $uploadedFile->storePubliclyAs(
+                '/',
+                $name . '.' . $extension,
+                'uploads'
+            );
+        }
+
         $game->save();
 
         return redirect('/games');

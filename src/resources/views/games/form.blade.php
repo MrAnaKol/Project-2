@@ -10,7 +10,8 @@
 
 <form
     method="post"
-    action="{{ $game->exists ? '/games/patch/' . $game->id : '/games/put' }}">
+    action="{{ $game->exists ? '/games/patch/' . $game->id : '/games/put' }}"
+    enctype="multipart/form-data">
     @csrf
     
     <div class="mb-3">
@@ -96,7 +97,28 @@
         @enderror
     </div>
 
-    // image
+    <div class="mb-3">
+        <label for="game-image" class="form-label">Image</label>
+
+        @if ($game->image)
+            <img
+                src="{{ asset('images/' . $game->image) }}"
+                class="img-fluid img-thumbnail d-block mb-2"
+                alt="{{ $game->name }}"
+            >
+        @endif
+
+        <input
+            type="file" accept="image/png, image/webp, image/jpeg"
+            id="game-image"
+            name="image"
+            class="form-control @error('image') is-invalid @enderror"
+        >
+
+        @error('image')
+            <p class="invalid-feedback">{{ $errors->first('image') }}</p>
+        @enderror
+    </div>
 
     <div class="mb-3">
         <div class="form-check">
