@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Developer;
+use App\Http\Requests\GameRequest;
+
 
 class GameController extends Controller
 {
@@ -35,42 +37,6 @@ class GameController extends Controller
         );
     }
 
-    public function put(Request $request)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required|min:3|max:256',
-            'developer_id' => 'required',
-            'description' => 'nullable',
-            'price' => 'nullable|numeric',
-            'year' => 'numeric',
-            'image' => 'nullable|image',
-            'display' => 'nullable'
-        ]);
-
-        $game = new Game();
-        $game->name = $validatedData['name'];
-        $game->developer_id = $validatedData['developer_id'];
-        $game->description = $validatedData['description'];
-        $game->price = $validatedData['price'];
-        $game->year = $validatedData['year'];
-        $game->display = (bool) ($validatedData['display'] ?? false);
-
-        if ($request->hasFile('image')) {
-            $uploadedFile = $request->file('image');
-            $extension = $uploadedFile->clientExtension();
-            $name = uniqid();
-            $game->image = $uploadedFile->storePubliclyAs(
-                '/',
-                $name . '.' . $extension,
-                'uploads'
-            );
-        }
-
-        $game->save();
-
-        return redirect('/games');
-    }
-
     public function update(Game $game)
     {
         $developers = Developer::orderBy('name', 'asc')->get();
@@ -85,23 +51,16 @@ class GameController extends Controller
         );
     }
 
-    public function patch(Game $game, Request $request)
+    public function delete(Game $game)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|min:3|max:256',
-            'developer_id' => 'required',
-            'description' => 'nullable',
-            'price' => 'nullable|numeric',
-            'year' => 'numeric',
-            'image' => 'nullable|image',
-            'display' => 'nullable'
-        ]);
+        $game->delete();
+        return redirect('/games');
+    }
 
-        $game->name = $validatedData['name'];
-        $game->developer_id = $validatedData['developer_id'];
-        $game->description = $validatedData['description'];
-        $game->price = $validatedData['price'];
-        $game->year = $validatedData['year'];
+    private function saveGameData(Game $game, GameRequest $request)
+    {
+        $validatedData = $request->validated();
+        $game->fill($validatedData);
         $game->display = (bool) ($validatedData['display'] ?? false);
 
         if ($request->hasFile('image')) {
@@ -116,13 +75,18 @@ class GameController extends Controller
         }
 
         $game->save();
+    }
 
+    public function put(GameRequest $request)
+    {
+        $game = new Game();
+        $this->saveBookData($game, $request);
         return redirect('/games');
     }
 
-    public function delete(Game $game)
+    public function patch(Game $game, GameRequest $request)
     {
-        $game->delete();
+        $this->saveGameData($game, $request);
         return redirect('/games');
     }
 }
