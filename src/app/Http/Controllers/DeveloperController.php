@@ -13,18 +13,18 @@ class DeveloperController extends Controller
         $items = Developer::orderBy('name', 'asc')->get();
 
         return view(
-            'developer.list',
+            'developers.list',
             [
                 'title' => 'Developers',
                 'items' => $items
             ]
         );
     }
-    
+
     public function create()
     {
         return view(
-            'developer.form',
+            'developers.form',
             [
                 'title' => 'Add new developer',
                 'developer' => new Developer()
@@ -48,7 +48,7 @@ class DeveloperController extends Controller
     public function update(Developer $developer)
     {
         return view(
-            'developer.form',
+            'developers.form',
             [
                 'title' => 'Edit developer',
                 'developer' => $developer

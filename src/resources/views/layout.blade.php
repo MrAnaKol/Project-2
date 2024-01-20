@@ -29,7 +29,7 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/developer">Developers</a>
+                        <a class="nav-link" href="/developers">Developers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/games">Games</a>

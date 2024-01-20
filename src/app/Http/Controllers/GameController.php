@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\Developer;
 
 class GameController extends Controller
 {
@@ -12,7 +13,7 @@ class GameController extends Controller
         $items = Game::orderBy('name', 'asc')->get();
 
         return view(
-            'game.list',
+            'games.list',
             [
                 'title' => 'Games',
                 'items' => $items
@@ -25,7 +26,7 @@ class GameController extends Controller
         $developers = Developer::orderBy('name', 'asc')->get();
 
         return view(
-            'game.form',
+            'games.form',
             [
                 'title' => 'Add game',
                 'game' => new Game(),
@@ -63,7 +64,7 @@ class GameController extends Controller
         $developers = Developer::orderBy('name', 'asc')->get();
 
         return view(
-            'game.form',
+            'games.form',
             [
                 'title' => 'Edit game',
                 'game' => $game,
@@ -92,7 +93,7 @@ class GameController extends Controller
         $game->display = (bool) ($validatedData['display'] ?? false);
         $game->save();
 
-        return redirect('/games/update/' . $game->id);
+        return redirect('/games');
     }
 
     public function delete(Game $game)

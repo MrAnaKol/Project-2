@@ -31,12 +31,13 @@
 
             </tbody>
         </table>
-        <a href="/developers/create" class="btn btn-primary">Izveidot jaunu</a>
 
     @else
 
         <p>No entries found in database</p>
 
     @endif
+    
+    <a href="/developers/create" class="btn btn-primary">Izveidot jaunu</a>
 
 @endsection
