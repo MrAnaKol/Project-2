@@ -73,4 +73,9 @@ class DeveloperController extends Controller
         $developer->delete();
         return redirect('/developers');
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

@@ -89,4 +89,9 @@ class GameController extends Controller
         $this->saveGameData($game, $request);
         return redirect('/games');
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

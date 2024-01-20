@@ -13,4 +13,9 @@ class HomeController extends Controller
             ['title' => 'Sākumlapa']
         );
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }
