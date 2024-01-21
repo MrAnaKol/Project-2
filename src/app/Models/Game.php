@@ -9,10 +9,15 @@ class Game extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'developer_id', 'description', 'price', 'year'];
+    protected $fillable = ['name', 'developer_id', 'genre_id', 'description', 'price', 'year'];
 
     public function developer()
     {
         return $this->belongsTo(Developer::class);
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
     }
 }

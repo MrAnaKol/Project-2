@@ -12,6 +12,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Developer</th>
+                <th>Genre</th>
                 <th>Year</th>
                 <th>Price</th>
                 <th>Published</th>
@@ -25,6 +26,7 @@
                 <td>{{ $game->id }}</td>
                 <td>{{ $game->name }}</td>
                 <td>{{ $game->developer->name }}</td>
+                <td>{{ $game->genre->name }}</td>
                 <td>{{ $game->year }}</td>
                 <td>&euro; {{ number_format($game->price, 2, '.') }}</td>
                 <td>{!! $game->display ? '&#x2714;' : '&#x274C;' !!}</td>

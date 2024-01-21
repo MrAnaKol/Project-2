@@ -16,6 +16,7 @@ class GameRequest extends FormRequest
         return [
             'name' => 'required|min:3|max:256',
             'developer_id' => 'required',
+            'genre_id' => 'required',
             'description' => 'nullable',
             'price' => 'nullable|numeric',
             'year' => 'numeric',
@@ -41,7 +42,8 @@ class GameRequest extends FormRequest
     {
         return [
             'name' => 'nosaukums',
-            'developer_id' => 'developers',
+            'developer_id' => 'izstrādātājs',
+            'genre_id' => 'žanrs',
             'description' => 'apraksts',
             'price' => 'cena',
             'year' => 'gads',

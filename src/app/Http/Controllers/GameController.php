@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Developer;
+use App\Models\Genre;
 use App\Http\Requests\GameRequest;
 
 
@@ -26,6 +27,7 @@ class GameController extends Controller
     public function create()
     {
         $developers = Developer::orderBy('name', 'asc')->get();
+        $genres = Genre::orderBy('name', 'asc')->get();
 
         return view(
             'games.form',
@@ -33,6 +35,7 @@ class GameController extends Controller
                 'title' => 'Add game',
                 'game' => new Game(),
                 'developers' => $developers,
+                'genres' => $genres,
             ]
         );
     }
@@ -40,6 +43,7 @@ class GameController extends Controller
     public function update(Game $game)
     {
         $developers = Developer::orderBy('name', 'asc')->get();
+        $genres = Genre::orderBy('name', 'asc')->get();
 
         return view(
             'games.form',
@@ -47,6 +51,7 @@ class GameController extends Controller
                 'title' => 'Edit game',
                 'game' => $game,
                 'developers' => $developers,
+                'genres' => $genres,
             ]
         );
     }
@@ -80,7 +85,7 @@ class GameController extends Controller
     public function put(GameRequest $request)
     {
         $game = new Game();
-        $this->saveBookData($game, $request);
+        $this->saveGameData($game, $request);
         return redirect('/games');
     }
 

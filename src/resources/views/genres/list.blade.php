@@ -16,12 +16,12 @@
             </thead>
             <tbody>
 
-            @foreach($items as $developer)
+            @foreach($items as $genre)
             <tr>
-                <td>{{ $developer->id }}</td>
-                <td>{{ $developer->name }}</td>
-                <td><a href="/developers/update/{{ $developer->id }}" class="btn btn-outline-primary btnsm">Edit</a> / 
-                    <form action="/developers/delete/{{ $developer->id }}" method="post" class="d-inline deletion-form">
+                <td>{{ $genre->id }}</td>
+                <td>{{ $genre->name }}</td>
+                <td><a href="/genres/update/{{ $genre->id }}" class="btn btn-outline-primary btnsm">Edit</a> / 
+                    <form action="/genres/delete/{{ $genre->id }}" method="post" class="d-inline deletion-form">
                         @csrf
                         <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
                     </form>
@@ -37,7 +37,7 @@
         <p>No entries found in database</p>
 
     @endif
-
-    <a href="/developers/create" class="btn btn-primary">Izveidot jaunu</a>
+    
+    <a href="/genres/create" class="btn btn-primary">Izveidot jaunu</a>
 
 @endsection
