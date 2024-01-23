@@ -13,8 +13,42 @@
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
     crossorigin="anonymous"
     >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <nav class="navbar navbar-expand-md bg-primary mb-3" data-bs-theme="dark">
+    <style> .mask-custom {
+            backdrop-filter: blur(10px);
+            background-color: rgba(178,60,253,0.1);
+            }
+
+            .btn1{
+                background-color: teal;
+                color: #fff;
+            }
+
+            .btn1:hover{
+                background-color: #fff;
+                color: teal;
+                border-color: teal;
+            }
+
+            .btn2{
+                background-color: #A94438;
+                color: #fff;
+            }
+
+            .btn2:hover{
+                background-color: #fff;
+                color: #A94438;
+                border-color: #A94438;
+            }
+    </style>
+
+</head>
+
+<body>
+    <div class="bg-image" style="background-image: url('/images/bg2.png');">
+    <div class="mask mask-custom">
+    <nav class="navbar navbar-expand-md mb-3" data-bs-theme="dark" style="background-color: #594666;">
         <div class="container">
             <span class="navbar-brand mb-0 h1">Project 2</span>
 
@@ -26,26 +60,30 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="/">Mājaslapa</a>
                         </li>
                     @if(Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link" href="/developers">Developers</a>
+                            <a class="nav-link" href="/developers">Izstrādātāji</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/genres">Genres</a>
+                            <a class="nav-link" href="/genres">Žanri</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/games">Games</a>
+                            <a class="nav-link" href="/games">Spēles</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout">Log out</a>
+                            <a class="nav-link" href="/logout">
+                            <i class="bi bi-box-arrow-right"></i>
+                            Iziet</a>
                         </li>
 
                     @else
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Log in</a>
+                            <a class="nav-link" href="/login">
+                            <i class="bi bi-box-arrow-in-left"></i>
+                            Ieiet</a>
                         </li>
 
                     @endif
@@ -53,18 +91,7 @@
             </div>
         </div>
     </nav>
-
-</head>
-
-<body>
-
-    <nav class="navbar bg-primary mb-3" data-bs-theme="dark">
-        <header class="container">
-            <a class="navbar-brand" href="#">Project 2 - {{ $title }}</a>
-        </header>
-    </nav>
-
-
+    <div style="min-height: 81.75vh;">
     <main class="container">
         <div class="row">
             <div class="col">
@@ -74,18 +101,21 @@
             </div>
         </div>
     </main>
-
-    <footer class="text-bg-dark mt-3">
+    </div>
+    
+    <footer class="text-bg-dark mt-4">
         <div class="container">
-            <div class="row py-5">
+            <div class="row py-4">
                 <div class="col">
-                A. Koļesņevs, 2024
+                A. Koļesņevs, VeA 2ITB, 2024
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="/js/admin.js"></script>
+    </div>
+    </div>
 
 </body>
 

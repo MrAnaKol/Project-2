@@ -8,7 +8,7 @@
 
     @if ($errors->any())
         <div class="alert alert-danger">
-            Failed to authenticate. Please try again!
+            Neizdevās autentificēt. Lūdzu mēģiniet vēlreiz!
         </div>
     @endif
 
@@ -16,7 +16,7 @@
         @csrf
 
         <div class="mb-3">
-            <label for="login-name" class="form-label">User name</label>
+            <label for="login-name" class="form-label">Lietotājvārds</label>
             <input
                 type="text"
                 id="login-name"
@@ -28,7 +28,7 @@
         </div>
         
         <div class="mb-3">
-            <label for="login-password" class="form-label">Password</label>
+            <label for="login-password" class="form-label">Parole</label>
             <input
                 type="password"
                 id="login-password"
@@ -38,7 +38,7 @@
         </div>
 
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-secondary">Ieiet</button>
         </div>
 
     </form>

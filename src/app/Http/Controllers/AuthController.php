@@ -12,7 +12,7 @@ class AuthController extends Controller
         return view(
             'auth.login',
             [
-                'title' => 'Login'
+                'title' => 'Ieiet'
             ]
         );
     }
@@ -32,7 +32,7 @@ class AuthController extends Controller
             'name' => 'Authentication error',
         ]);
     }
-    
+
     public function logout(Request $request)
     {
         Auth::logout();

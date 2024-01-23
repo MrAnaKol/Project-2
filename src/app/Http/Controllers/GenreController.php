@@ -15,7 +15,7 @@ class GenreController extends Controller
         return view(
             'genres.list',
             [
-                'title' => 'Genres',
+                'title' => 'Žanri',
                 'items' => $items
             ]
         );
@@ -26,7 +26,7 @@ class GenreController extends Controller
         return view(
             'genres.form',
             [
-                'title' => 'Add new genre',
+                'title' => 'Pievienot jaunu žanru',
                 'genre' => new Genre()
             ]
         );
@@ -50,7 +50,7 @@ class GenreController extends Controller
         return view(
             'genres.form',
             [
-                'title' => 'Edit genre',
+                'title' => 'Rediģēt žanru',
                 'genre' => $genre
             ]
         );

@@ -18,7 +18,7 @@ class GameController extends Controller
         return view(
             'games.list',
             [
-                'title' => 'Games',
+                'title' => 'Spēles',
                 'items' => $items
             ]
         );
@@ -32,7 +32,7 @@ class GameController extends Controller
         return view(
             'games.form',
             [
-                'title' => 'Add game',
+                'title' => 'Pievienot spēli',
                 'game' => new Game(),
                 'developers' => $developers,
                 'genres' => $genres,
@@ -48,7 +48,7 @@ class GameController extends Controller
         return view(
             'games.form',
             [
-                'title' => 'Edit game',
+                'title' => 'Rediģēt spēli',
                 'game' => $game,
                 'developers' => $developers,
                 'genres' => $genres,

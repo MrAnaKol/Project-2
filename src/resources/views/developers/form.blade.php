@@ -2,10 +2,10 @@
 
 @section('content')
 
-<h1>{{ $title }}</h1>
+<h1 class="text-white p-2 py-2" style="backdrop-filter: blur(10px);">{{ $title }}</h1>
 
 @if ($errors->any())
-    <div class="alert alert-danger">Please fix the errors! </div>
+    <div class="alert alert-danger">Lūdzu, izlabojiet kļūdas!</div>
 @endif
 
 <form 
@@ -14,7 +14,7 @@
     @csrf
     
     <div class="mb-3">
-        <label for="developer-name" class="form-label">Developer name</label>
+        <label for="developer-name" class="form-label">Izstrādātāja nosaukums</label>
 
         <input
             type="text"
@@ -30,7 +30,7 @@
 
     </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-secondary">Saglabāt</button>
 
 </form>
 

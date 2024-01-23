@@ -8,7 +8,7 @@ function setupDeleteForms() {
         form.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            if (window.confirm('Are you sure you want to delete this object?')) {
+            if (window.confirm("Vai tiešām vēlaties dzēst šo objektu?")) {
                 form.submit();
             } else {
                 return false;

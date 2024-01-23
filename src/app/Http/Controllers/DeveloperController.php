@@ -15,7 +15,7 @@ class DeveloperController extends Controller
         return view(
             'developers.list',
             [
-                'title' => 'Developers',
+                'title' => 'Izstrādātāji',
                 'items' => $items
             ]
         );
@@ -26,7 +26,7 @@ class DeveloperController extends Controller
         return view(
             'developers.form',
             [
-                'title' => 'Add new developer',
+                'title' => 'Pievienojiet jaunu izstrādātāju',
                 'developer' => new Developer()
             ]
         );
@@ -50,7 +50,7 @@ class DeveloperController extends Controller
         return view(
             'developers.form',
             [
-                'title' => 'Edit developer',
+                'title' => 'Rediģēt izstrādātāju',
                 'developer' => $developer
             ]
         );

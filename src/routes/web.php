@@ -5,6 +5,7 @@ use App\Http\Controllers\DeveloperController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -38,3 +39,10 @@ Route::post('/genres/put', [GenreController::class, 'put']);
 Route::get('/genres/update/{genre}', [GenreController::class, 'update']);
 Route::post('/genres/patch/{genre}', [GenreController::class, 'patch']);
 Route::post('/genres/delete/{genre}', [GenreController::class, 'delete']);
+
+// Data routes
+Route::prefix('data')->group(function () {
+    Route::get('/get-top-games', [DataController::class, 'getTopGames']);
+    Route::get('/get-game/{game}', [DataController::class, 'getGame']);
+    Route::get('/get-related-games/{game}', [DataController::class, 'getRelatedGames']);
+});

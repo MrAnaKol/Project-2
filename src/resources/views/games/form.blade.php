@@ -2,10 +2,10 @@
 
 @section('content')
 
-<h1>{{ $title }}</h1>
+<h1 class="text-white p-2 py-2" style="backdrop-filter: blur(10px);">{{ $title }}</h1>
 
 @if ($errors->any())
- <div class="alert alert-danger">Please fix the validation errors!</div>
+ <div class="alert alert-danger">Lūdzu, izlabojiet validācijas kļūdas!</div>
 @endif
 
 <form
@@ -15,7 +15,7 @@
     @csrf
     
     <div class="mb-3">
-        <label for="game-name" class="form-label">Name</label>
+        <label for="game-name" class="form-label">Nosaukums</label>
 
         <input
             type="text"
@@ -31,14 +31,14 @@
     </div>
 
     <div class="mb-3">
-        <label for="game-developer" class="form-label">Developer</label>
+        <label for="game-developer" class="form-label">Izstrādātājs</label>
 
         <select
             id="game-developer"
             name="developer_id"
             class="form-select @error('developer_id') is-invalid @enderror"
         >
-            <option value="">Choose the developer!</option>
+            <option value="">Izvēlieties izstrādātāju!</option>
                 @foreach($developers as $developer)
                     <option
                     value="{{ $developer->id }}"
@@ -53,14 +53,14 @@
     </div>
 
     <div class="mb-3">
-        <label for="game-genre" class="form-label">Genre</label>
+        <label for="game-genre" class="form-label">Žanrs</label>
 
         <select
             id="game-genre"
             name="genre_id"
             class="form-select @error('genre_id') is-invalid @enderror"
         >
-            <option value="">Choose the genre!</option>
+            <option value="">Izvēlieties žanru!</option>
                 @foreach($genres as $genre)
                     <option
                     value="{{ $genre->id }}"
@@ -75,7 +75,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="game-description" class="form-label">Description</label>
+        <label for="game-description" class="form-label">Apraksts</label>
         <textarea
             id="game-description"
             name="description"
@@ -88,7 +88,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="game-year" class="form-label">Release year</label>
+        <label for="game-year" class="form-label">Izdošanas gads</label>
 
         <input
             type="number" max="{{ date('Y') + 1 }}" step="1"
@@ -104,7 +104,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="game-price" class="form-label">Price</label>
+        <label for="game-price" class="form-label">Cena</label>
 
         <input
             type="number" min="0.00" step="0.01" lang="en"
@@ -120,7 +120,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="game-image" class="form-label">Image</label>
+        <label for="game-image" class="form-label">Bilde</label>
 
         @if ($game->image)
             <img
@@ -153,7 +153,7 @@
                 @if (old('display', $game->display)) checked @endif
             >
             <label class="form-check-label" for="game-display">
-                Publish
+                Publicēt
             </label>
 
             @error('display')
@@ -162,8 +162,8 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">
-        {{ $game->exists ? 'Update' : 'Create' }}
+    <button type="submit" class="btn btn-secondary" >
+        {{ $game->exists ? 'Atjaunināt' : 'Izveidot' }}
     </button>
 </form>
 
