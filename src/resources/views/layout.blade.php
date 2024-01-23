@@ -41,6 +41,21 @@
                 color: #A94438;
                 border-color: #A94438;
             }
+
+    </style>
+    <style>
+        ::-webkit-scrollbar {
+        width:auto;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgb(240,240,240);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background:rgb(64,64,64);
+            border-radius:10px;
+        }
     </style>
 
 </head>
