@@ -33,6 +33,18 @@
                 border-radius:10px;
             }
         </style>
+        <style>
+            .grow img{
+            transition: 1s ease;
+            }
+
+            .grow img:hover{
+            -webkit-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+            transition: 1s ease;
+            }
+        </style>
 
     </head>
 
@@ -93,7 +105,8 @@
         <footer class="text-center p-4 mt-3 py-3" style="background-color: rgba(0, 0, 0, 0.45);">
             <div class="container">
                 <div class="text-white">
-                    A. Koļesņevs, VeA, 2024
+                    A. Koļesņevs, VeA - <i class="bi bi-calendar"></i>
+                    <?php echo date("d.m.Y"); ?>
                 </div>
             </div>
         </footer>

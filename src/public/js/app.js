@@ -93,6 +93,11 @@ function renderIndex(games) {
                 lead.textContent = (game.description.split(' ').slice(0, 32).join(' ')) + '...';
                 info.appendChild(lead);
             }
+            // year
+            let yearValue = document.createElement('dd');
+            yearValue.classList = 'col-sm-9';
+            yearValue.textContent = "Gads - " + game.year;
+            info.appendChild(yearValue);
 
             // "See more" button
             let btn = document.createElement('a');
@@ -107,7 +112,7 @@ function renderIndex(games) {
 
         // create image div
         let image = document.createElement('div');
-        image.classList = 'col-md-6 text-center ' + (i % 2 == 0 ? 'order-2' : 'order-1');
+        image.classList = 'col-md-6 text-center ' + (i % 2 == 0 ? 'order-2' : 'order-1') + ' grow';
         
 
             // create image
@@ -174,7 +179,13 @@ function renderSingle(game) {
 
             let priceValue = document.createElement('dd');
             priceValue.classList = 'col-sm-9';
-            priceValue.innerHTML = "&euro; " + game.price;
+            if (game.price > 0){
+                priceValue.innerHTML = "&euro; " + game.price;
+            }
+            else{
+                priceValue.innerHTML = "Bezmaksas";
+            }
+            
             dl.appendChild(priceValue);
 
             // developer
@@ -215,7 +226,7 @@ function renderSingle(game) {
 
     // create image div
     let image = document.createElement('div');
-    image.classList = 'col-md-6 text-center p-5';
+    image.classList = 'col-md-6 text-center p-5' + ' grow';
 
         // create image
         let img = document.createElement('img');
@@ -264,7 +275,7 @@ function renderRelated(games) {
 
         // create card div
         let card = document.createElement('div');
-        card.classList = 'card';
+        card.classList = 'card' + ' grow';
 
         // create card image
         let img = document.createElement('img');
